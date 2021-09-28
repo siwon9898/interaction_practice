@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pageNike</title>
+
+  <style>
+    body {
+      overflow-x: hidden;
+      background-color: #e8e19b;
+    }
+
+    .innerWrap {
+      padding: 120px;
+      width: 340px;
+      margin-top: 50px;
+      z-index: 50;
+    }
+
+    .image {
+      position: fixed;
+      right: 5%;
+      top: 20%;
+      opacity: 0;
+      width: 800px;
+    }
+
+    h1 {
+      color: #111;
+      text-align: center;
+      padding-top: 40px;
+      font-size: 60px;
+    }
+
+    h2 {
+      color: #111;
+    }
+
+    p {
+      color: #333;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    section {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    section.active .image {
+      opacity: 1;
+    }
+
+    .pointWrap {
+      position: fixed;
+      right: 3vw;
+      top: 40%;
+      z-index: 100;
+    }
+
+    .pointWrap li {
+      list-style: none;
+      width: 12px;
+      height: 12px;
+      margin-top: 15px;
+      cursor: pointer;
+      background-color: #666;
+      border-radius: 50%;
+      transition: background .3s ease-out;
+    }
+
+    .pointWrap li.active {
+      background-color: #000;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var section = document.getElementsByTagName("section");
+      var pointBtn = document.querySelectorAll('.pointWrap li');
+
+      var pageNum = 0;
+      var totalNum = section.length;
+
+      for (var i = 0; i < pointBtn.length; i++) { //함수 외부에 선언하고 돌아가는지 확인하기 -> 성공!
+        nav(i);
+        
+        /*(function (idx) {
+          pointBtn[idx].onclick = function () {
+            pageNum = idx;
+            pageChangeFunc();
+
+            window.scrollTo({
+              top: section[pageNum].offsetTop,
+              behavior: 'smooth',
+            })
+          }
+        })(i);*/
+
+      }
+
+      function nav(idx){
+        pointBtn[idx].onclick = function(){
+          pageNum = idx;
+          pageChangeFunc();
+        }
+        window.scrollTo({
+          top:section[pageNum].offsetTop,
+          behavior:'smooth'
+        })
+      }
+
+      window.addEventListener("scroll", function (event) {
+        var scroll = this.scrollY;
+        for (i = 0; i < totalNum; i++) {
+          if (scroll > section[i].offsetTop - window.outerHeight / 1.5 &&
+            scroll < section[i].offsetTop - window.outerHeight / 1.5 + section[i].offsetHeight) {
+            pageNum = i
+            break;
+          }
+        }
+        pageChangeFunc();
+      });
+
+      function pageChangeFunc(){
+        for (var i=0; i<totalNum; i++){
+          section[i].classList.remove("active");
+          pointBtn[i].classList.remove("active");
+        }
+        section[pageNum].classList.add("active");
+        pointBtn[pageNum].classList.add("active");
+        console.log(i, ": i")
+        console.log(pageNum, ": pageNum")
+
+      }
+
+
+    }
+  </script>
+</head>
+
+<body>
+  <ul class="pointWrap">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <section>
+    <h1>NIKE SNEAKERS</h1>
+  </section>
+
+  <section>
+    <img src="../image/pic_1.jpg" class="image" alt="">
+    <div class="innerWrap">
+      <h2>page1</h2>
+      <p>Sketch.</p>
+    </div>
+  </section>
+
+  <section>
+    <img src="../image/pic_2.jpg" class="image" alt="">
+    <div class="innerWrap">
+      <h2>page2</h2>
+      <p>Outline.</p>
+    </div>
+  </section>
+
+  <section>
+    <img src="../image/pic_3.jpg" class="image" alt="">
+    <div class="innerWrap">
+      <h2>page3</h2>
+      <p>Color.</p>
+    </div>
+  </section>
+
+  <section>
+    <img src="../image/pic_4.jpg" class="image" alt="">
+    <div class="innerWrap">
+      <h2>page 4</h2>
+      <p>Define Black.</p>
+    </div>
+  </section>
+
+  <section>
+    <img src="../image/pic_5.jpg" class="image" alt="">
+    <div class="innerWrap">
+      <h2>page 5</h2>
+      <p>Add some Red.</p>
+    </div>
+  </section>
+
+  <section>
+    <img src="../image/pic_6.jpg" class="image" alt="">
+    <div class="innerWrap">
+      <h2>page 6</h2>
+      <p>Cherry on Top.</p>
+    </div>
+  </section>
+
+  <section>
+    <img src="../image/pic_7.jpg" class="image" alt="">
+    <div class="innerWrap">
+      <h2>page 6</h2>
+      <p>Stitches. </p>
+    </div>
+  </section>
+
+</body>
+
+</html>

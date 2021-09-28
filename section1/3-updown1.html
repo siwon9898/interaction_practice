@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>업다운게임1</title>
+  <style>
+    body{
+      height: 100vh;
+    }
+    .contWrap{
+      position: relative;
+      width: 400px;
+      background:#e6e6e6;
+      padding: 20px;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    input{
+      padding: 10px 20px;
+      font-size: 20px;
+      text-align: center;
+      max-width: 170px;
+    }
+
+    button{
+      font-size: 20px;
+      padding: 8px 20px;
+    }
+     
+  </style>
+  <script>
+    window.onload = function(){
+      var input = document.getElementsByTagName("input")[0];//겟엘바택넴은 해당 태그네임이 여러 개 있다는 가정 하에
+      //배열로 반환한다, 그래서 0이 붙는다
+      //console.log(document.getElementsByTagName("input"));
+      var result = document.querySelector(".result");
+      var result2 = document.getElementById("result")
+      console.log(result)
+      console.log(result2)
+
+      var button = document.querySelector(".startBtn");
+      document.getElementById("initialNum").value = Math.round(Math.random()*10);
+
+      button.addEventListener("click", function(){
+        resultFunc();
+      });
+
+      var resultArr = ["업🔼", "다운🔽", "정답🎉"];
+      var randomNum = Math.round(Math.random()*10); //정답
+      
+    
+
+    function resultFunc() {
+      var value = input.value;
+      //var value = document.getElementById("initialNum").value;
+      if (value < randomNum){
+        result.innerHTML = resultArr[0];
+      } else if(value > randomNum){
+        result.innerHTML = resultArr[1];
+      }else{
+        result.innerHTML = resultArr[2];
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="contWrap">
+    <h3>guess a number!</h3>
+    <p class ="result" id="result">(0부터 10 사이)</p>
+    <input type="number" id="initialNum" value="" max = 10 min = 0 />
+    <button type="button" class="startBtn">입력</button>
+  </div>
+</body>
+</html>

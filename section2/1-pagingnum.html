@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paging Number</title>
+  <style>
+    h1{
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 30px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    window.onload=function(){
+
+      var prevBtn = document.querySelector(".prevBtn");
+      var nextBtn = document.querySelector(".nextBtn");
+      var h1 = document.getElementsByTagName("h1")[0]; 
+
+      var pageNum = 0;
+
+      prevBtn.addEventListener("click", function(){
+        pageNum--;
+
+        if (pageNum < 1)
+        {
+          alert("시작 페이지 입니다!");
+          pageNum=1;
+        }
+        h1.innerHTML = pageNum + "페이지 입니다"
+      })
+
+      nextBtn.addEventListener("click", function(){
+        pageNum ++;
+        if(pageNum >5)
+        {
+          alert("마지막 페이지 입니다!")
+          pageNum = 5;
+        }
+        h1.innerHTML = pageNum +"페이지 입니다"
+
+       
+      })
+
+
+    }
+
+  </script>
+</head>
+<body>
+  <button type="button" class="prevBtn">PREV</button>
+  <button type="button" class="nextBtn">NEXT</button>
+  <h1></h1>
+</body>
+</html>

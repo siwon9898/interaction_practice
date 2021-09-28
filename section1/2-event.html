@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화살표 회전</title>
+  <style>
+    body{
+      overflow: hidden; /*바디 안에 내용이 넘치면 잘리게하는 속성, auto는 넘치면 스크롤,
+      scroll은 무관하게 스크롤, visible은 끝까지 다 보여주는것*/
+    }
+    h1{
+      font-size: 20px;
+    }
+    button{
+      font-size: 20px;
+      padding: 10px 30px;
+      cursor: pointer;
+    }
+    .arrowWrap {
+      margin: 30px;
+    }
+    .arrowWrap img {
+      transform: rotate(-90deg);
+      transition: transform 4s cubic-bezier(0.075, 0.82, 0.165, 1); /*구글에 css ease쳐서 나온 사이트에 그래프 조절하면
+      cubic bezier값 나옴*/
+      width: 30%;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      var resetBtn= document.querySelector(".resetBtn");
+      var startBtn = document.querySelector(".startBtn");
+
+      var h1 = document.getElementsByTagName("h1")[0];
+      var arrow = document.querySelector(".arrow");
+      var rotateNum = 0;
+      var displayNum = 0;
+
+      resetBtn.addEventListener("click", function() {
+        rotateNum=-90;
+        displayNum = 0;
+        h1.innerHTML = displayNum + "deg";
+        arrow.style.transform = "rotate("+ rotateNum + "deg)";
+      })
+
+      startBtn.addEventListener("click", function(){
+        rotateNum = (Math.round(Math.random()*1800))- 90;
+        displayNum= (rotateNum % 360) + 90
+        if (displayNum >360)
+        {
+          displayNum -= 360
+        }
+
+        //if((rotateNum % 360) < 0) {
+          //displayNum = ;
+        //} else {
+          //displayNum= (rotateNum % 360);
+        //}
+        //alert(rotateNum)
+        h1.innerHTML = displayNum + "deg";
+        arrow.style.transform = "rotate(" + rotateNum + "deg)";
+      })
+    }
+  </script>
+</head>
+<body>
+  <button type="button" class="resetBtn">리셋</button>
+  <button type="button" class="startBtn">회전</button>
+  <h1>0deg</h1>
+  <div class="arrowWrap">
+    <img src = "./image/arrow.png" alt="arrow" class="arrow">
+  </div>
+  
+</body>
+</html>

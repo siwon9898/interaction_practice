@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>timer1</title>
+  <style>
+    button {
+      width: 300px;
+      height: 100px;
+      margin-top: 30%;      
+    }
+
+    .contWrap{
+      text-align: center;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+      var num = document.querySelector(".num");
+      var startBtn = document.querySelector(".startBtn");
+
+      startBtn.addEventListener("click", function(){
+        interval();
+      });
+      var timer;
+
+      function interval(){
+        clearInterval(timer);
+
+        var secNum = 0;
+        timer = setInterval(function(){
+          secNum ++;
+          num.innerHTML = secNum;
+        },10)
+      }
+      }
+    
+
+  </script>
+</head>
+<body>
+  <div class="contWrap">
+    <button type="button" class="startBtn">더하기 시작</button>
+    <h1 class ="num">0</h1>
+  </div>
+</body>
+</html>
