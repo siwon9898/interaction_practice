@@ -22,11 +22,11 @@ window.onload = function () {
     userwrap.classList.add("active");
 
     submitbutton.addEventListener("click", function(){
-      const usrname = document.querySelector(".username").value;
-      const usrmsg = document.querySelector(".usermsg").value;
+      const usrname = document.getElementsByClassName("username")[0].value;
+      const usrmsg = document.getElementsByClassName("usermsg")[0].value;
       console.log(usrname, usrmsg);
       document.getElementsByTagName("p")[0].innerHTML = (usrmsg);
-      document.getElementsByTagName("h3")[0].innerHTML = "-" + (usrname);
+      document.getElementsByTagName("h3")[0].innerHTML = (usrname);
       
     })
 

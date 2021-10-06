@@ -5,11 +5,11 @@ body {
     overflow: hidden;
 }
 
-.startbtn {
+button {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%, -50%);
     padding: 20px 45px;
     font-size: 20px;
     font-weight: 500;
@@ -20,9 +20,9 @@ body {
     width: 290px;
 }
 
-.startbtn:before {
-    content: " ";
-    position: absolute;
+button:before {
+    content: "";
+    position: relative;
     width: 50px;
     height: 50px;
     bottom: 60px;
@@ -32,12 +32,12 @@ body {
     transition: all .3s ease-in-out;
 }
 
-.startbtn:hover:before {
+button:hover:before {
     transform: translate(10px, -15px) scale(1.7);
 }
 
 
-.startbtn.dimd {
+button.dimd {
     display: none;
 }
 
@@ -57,36 +57,6 @@ body {
     opacity: 1;
 }
 
-.userWrap {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    visibility: hidden;
-    opacity: 0;
-    
-}
-
-.userWrap.active {
-    visibility: visible;
-    opacity: 1;
-}
-
-.userWrap .username {
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    margin-bottom: 10px;
-    margin-left: 50px;
-    
-}
-
-.userWrap .usermsg {
-    width: 300px;
-    height: 100px;
-    text-align: center;
-}
-
 .contentWrap .front {
     position: relative;
     width: 400px;
@@ -97,27 +67,6 @@ body {
     transform-style: preserve-3d;
     perspective: 800px;
     border-radius: 10px 10px 0 0;
-}
-
-.contentWrap .front h1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background: url(/image/text.png) center top/200px no-repeat;
-    transform: translate3d(55px, 40px, 57px);
-}
-
-.contentWrap .front .sun {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    background: url(/image/sun.png) center bottom/60px no-repeat;
-    transform: translate3d(30px, 50px, 10px);
-
 }
 
 .contentWrap .front .cloud1 {
@@ -137,7 +86,6 @@ body {
     width: 100px;
     height: 100px;
     background: url(/image/cloud.png) center center/36px no-repeat;
-
     transform: translate3d(-20px, 90px, 40px);
     opacity: .8;
     z-index: 10;
@@ -163,36 +111,14 @@ body {
     transform: translate3d(-10px, 0, 45px);
 }
 
-.contentWrap .front .m3 {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 90%;
-    height: 200px;
-    background: url(/image/m3.png) right bottom/75% no-repeat;
-    transform: translate3d(-20px, 0, 70px);
-}
-
-.contentWrap .front .cow {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    background: url(/image/cow.png) center center/100% no-repeat;
-    transform: translate3d(65px, -9px, 48px);
-
-}
-
 .contentWrap .front .snow {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 230px;
-    background: url(/image/snow.png) center bottom/90% no-repeat;
-    transform: translate3d(0px, 0, 35px);
+    background: url(/image/m3.png) right bottom/75% no-repeat;
+    transform: translate3d(-20px, 0, 70px);
 }
 
 .contentWrap .back {

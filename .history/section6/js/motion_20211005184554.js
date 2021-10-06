@@ -8,31 +8,14 @@ var isIos = false;
 
 window.onload = function () {
   wrap = document.querySelector(".contentWrap");
-  userwrap = document.querySelector(".userWrap");
   isMobile = mobileChk();
   isIos = iosChk();
-  console.log("mobile?" + isMobile)
-  console.log("ios?" + isIos)
-  var startbutton = document.querySelector(".startbtn");
-  var submitbutton = document.querySelector(".submitbtn");
 
-  startbutton.addEventListener("click", function () {
-    startbutton.classList.add("dimd");
+  var button = document.querySelectorAll("button")[0];
+
+  button.addEventListener("click", function () {
+    button.classList.add("dimd");
     wrap.classList.add("active");
-    userwrap.classList.add("active");
-
-    submitbutton.addEventListener("click", function(){
-      const usrname = document.querySelector(".username").value;
-      const usrmsg = document.querySelector(".usermsg").value;
-      console.log(usrname, usrmsg);
-      document.getElementsByTagName("p")[0].innerHTML = (usrmsg);
-      document.getElementsByTagName("h3")[0].innerHTML = "-" + (usrname);
-      
-    })
-
-    
-    
-
 
     if (isMobile) {
       if (isIos) {
@@ -74,8 +57,8 @@ function loopMobile() {
 }
 
 function loop() {
-  mx += (x - mx) * .1
-  my += (y - my) * .1;
+  mx += (x - mx) * .5
+  my += (y - my) * .5;
 
   wrap.style.transform = "translate3d(-50%, -50%, 0) rotateX(" + (my / 10) + "deg) rotateY(" + (-mx / 10) + "deg)";
 

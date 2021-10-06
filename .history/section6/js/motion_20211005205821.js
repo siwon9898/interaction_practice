@@ -13,25 +13,21 @@ window.onload = function () {
   isIos = iosChk();
   console.log("mobile?" + isMobile)
   console.log("ios?" + isIos)
-  var startbutton = document.querySelector(".startbtn");
-  var submitbutton = document.querySelector(".submitbtn");
+  var button = document.querySelectorAll("button")[0];
+  const usrname = document.getElementsByClassName("username").value;
+  const usrmsg = document.getElementsByClassName("usermsg").value;
 
-  startbutton.addEventListener("click", function () {
-    startbutton.classList.add("dimd");
+  function printmsg(){
+    p.innerHTML = (usrmsg);
+    h3.innerHTML = (usrname);
+    
+  }
+
+  button.addEventListener("click", function () {
+    button.classList.add("dimd");
     wrap.classList.add("active");
     userwrap.classList.add("active");
-
-    submitbutton.addEventListener("click", function(){
-      const usrname = document.querySelector(".username").value;
-      const usrmsg = document.querySelector(".usermsg").value;
-      console.log(usrname, usrmsg);
-      document.getElementsByTagName("p")[0].innerHTML = (usrmsg);
-      document.getElementsByTagName("h3")[0].innerHTML = "-" + (usrname);
-      
-    })
-
-    
-    
+    printmsg();
 
 
     if (isMobile) {

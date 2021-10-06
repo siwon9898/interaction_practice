@@ -26,7 +26,7 @@ window.onload = function () {
       const usrmsg = document.querySelector(".usermsg").value;
       console.log(usrname, usrmsg);
       document.getElementsByTagName("p")[0].innerHTML = (usrmsg);
-      document.getElementsByTagName("h3")[0].innerHTML = "-" + (usrname);
+      document.getElementsByTagName("h3")[0].innerHTML = (usrname);
       
     })
 
